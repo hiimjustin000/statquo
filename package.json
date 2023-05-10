@@ -1,0 +1,65 @@
+{
+  "name": "statquo",
+  "version": "1.0.0",
+  "description": "Utility functions for working with statistics.",
+  "main": "cjs/index.js",
+  "module": "esm/index.mjs",
+  "types": "types/index.d.ts",
+  "jsdelivr": "dist/statquo.min.js",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./esm/index.mjs",
+      "require": "./cjs/index.js",
+      "browser": "./dist/statquo.min.js"
+    },
+    "./*": {
+      "types": "./types/*.d.ts",
+      "import": "./esm/*.mjs",
+      "require": "./cjs/*.js"
+    }
+  },
+  "files": [
+    "cjs",
+    "dist",
+    "esm",
+    "types"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiimjustin000/statquo.git"
+  },
+  "scripts": {
+    "build": "rimraf cjs dist esm types && node esbuild && tsc --emitDeclarationOnly --types node",
+    "build:docs": "rimraf docs && typedoc src/index.ts --includeVersion",
+    "test": "mocha",
+    "lint": "prettier . -c",
+    "lint:fix": "prettier . -w",
+    "prepare": "pnpm build"
+  },
+  "homepage": "https://hiimjustin000.github.io/statquo",
+  "keywords": [
+    "statistics",
+    "math",
+    "utility",
+    "mean",
+    "median",
+    "mode",
+    "variance",
+    "standard deviation",
+    "stdev",
+    "statquo"
+  ],
+  "author": "hiimjustin000",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.1.1",
+    "esbuild": "^0.17.18",
+    "mocha": "^10.2.0",
+    "prettier": "^2.8.8",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.24.7",
+    "typescript": "^5.0.4"
+  }
+}

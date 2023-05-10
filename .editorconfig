@@ -1,0 +1,34 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+[*]
+indent_style = space
+end_of_line = lf
+charset = utf-8
+
+[{.git*,.*ignore}]
+indent_size = 0
+trim_trailing_whitespace = true
+insert_final_newline = false
+
+[*.{json,yaml}]
+indent_size = 2
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[{*.ts,esbuild.js,.vscode/*.json}]
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[{{cjs,dist,esm}/*.js,pnpm-lock.yaml}]
+indent_size = 2
+trim_trailing_whitespace = false
+insert_final_newline = false
+
+[types/*.d.ts]
+indent_size = 4
+trim_trailing_whitespace = false
+insert_final_newline = false

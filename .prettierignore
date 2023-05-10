@@ -1,0 +1,12 @@
+*
+!*.js
+!*.ts
+.git
+.vscode
+cjs
+dist
+esm
+types
+!src
+!test
+node_modules
