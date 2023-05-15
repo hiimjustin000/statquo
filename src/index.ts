@@ -53,10 +53,7 @@ export const _internal = {
                     ? 0
                     : l - c;
             });
-        let s = 0;
-        let i = 1;
-        let o = 1;
-        for (; s < list.length; i += o, s += o) {
+        for (let s = 0, i = 1, o = 0; s < list.length; i += o, s += o) {
             let a = s;
             for (; a < list.length - 1 && n[a][0] === n[a + 1][0]; a++);
             o = a - s + 1;
@@ -72,7 +69,7 @@ export const _internal = {
     product(i: number, n: number): number {
         if (n < i) return 1;
         if (n == i) return n;
-        const half = (n + i) / 2;
+        const half = Math.trunc((n + i) / 2);
         return this.product(i, half) * this.product(half + 1, n);
     },
     /** Returns the gamma value of the given number. */
@@ -89,20 +86,16 @@ export const _internal = {
             );
         if (value >= 171.35) return Infinity;
         if (value > 85.0) {
-            const twoN = value * value;
-            const threeN = twoN * value;
-            const fourN = threeN * value;
-            const fiveN = fourN * value;
             return (
                 Math.sqrt((2 * Math.PI) / value) *
                 (value / Math.E) ** value *
                 (1 +
                     1 / (12 * value) +
-                    1 / (288 * twoN) -
-                    139 / (51840 * threeN) -
-                    571 / (2488320 * fourN) +
-                    163879 / (209018880 * fiveN) +
-                    5246819 / (75246796800 * fiveN * value))
+                    1 / (288 * value ** 2) -
+                    139 / (51840 * value ** 3) -
+                    571 / (2488320 * value ** 4) +
+                    163879 / (209018880 * value ** 5) +
+                    5246819 / (75246796800 * value ** 6))
             );
         }
         value--;

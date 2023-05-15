@@ -72,4 +72,9 @@ describe("statquo", () => {
             );
         });
     });
+    describe("factorial", () => {
+        it("should return 120", () => {
+            assert.strictEqual(statquo.factorial(5), 120);
+        });
+    });
 });
