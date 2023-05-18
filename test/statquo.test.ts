@@ -11,6 +11,9 @@ describe("statquo", () => {
         it("should return 3", () => {
             assert.strictEqual(statquo.median([1, 2, 3, 4, 5]), 3);
         });
+        it("should return 2.5", () => {
+            assert.strictEqual(statquo.median([1, 2, 3, 4]), 2.5);
+        });
     });
     describe("mode", () => {
         it("should return 3", () => {
